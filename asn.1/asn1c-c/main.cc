@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdio.h>
 #include "IntArray.h"
 
 #ifndef ARRAY_SIZE
@@ -41,6 +42,9 @@ int main(void)
 
 		free(array);
 		free(encode_buffer);
+
+		printf("%d ", i);
+		fflush(stdout);
 		sleep(1);
 	}
 	free(arr);
