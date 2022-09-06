@@ -1,0 +1,9 @@
+MyModule DEFINITIONS ::=
+BEGIN
+
+MyTypes ::= SEQUENCE {
+    myString     UTF8String
+}
+
+
+END
