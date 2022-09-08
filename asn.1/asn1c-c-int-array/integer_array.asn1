@@ -1,4 +1,0 @@
-IntArrayTest DEFINITIONS ::=
-BEGIN
-IntArray ::= SEQUENCE OF INTEGER(0..MAX)
-END

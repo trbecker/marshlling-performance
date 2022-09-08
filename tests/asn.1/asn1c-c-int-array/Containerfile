@@ -1,0 +1,12 @@
+from asn1c:latest
+
+run mkdir -p /sandbox/ASN1C /results
+workdir /sandbox
+copy integer_array.asn1 ASN1C
+run cd ASN1C && asn1c -gen-PER -gen-OER integer_array.asn1 && rm converter-example.*
+copy in_container_test.sh run.sh
+copy main.c .
+run for i in 256 512 1024 2048 4096 ; do \
+	gcc -I ASN1C/ -I /usr/share/asn1c/ ASN1C/*.c /usr/share/asn1c/{BIT,OCTET}_STRING_oer.c main.c -DARRAY_SIZE=$i -lm -o test-$i ;\
+done
+CMD ./run.sh
